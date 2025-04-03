@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJpFJ1w+YuIu1y5ji5TAfVZq0XjIE9nEWI4Y8f/9i1Fu5Un6jmXcLf4cz9Jg" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .book-list-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .book-list-container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .book-list-container h2 {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .book-item {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .book-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .book-author {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .book-price {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .book-item:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.02);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="book-list-container">
+            <h2>Available Books</h2>
+            <ul class="list-unstyled">
+                {% for book in books %}
+                    <li class="book-item">
+                        <span class="book-title">{{ book.title }}</span> by 
+                        <span class="book-author">{{ book.author }}</span> - 
+                        <span class="book-price">${{ book.price }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional for functionality like dropdowns or modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Z1P88lUe0vGGl40pftVzo37HbLM7UyYZtPImE9Edp5pLq9J" crossorigin="anonymous"></script>
+</body>
+</html>

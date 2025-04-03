@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJpFJ1w+YuIu1y5ji5TAfVZq0XjIE9nEWI4Y8f/9i1Fu5Un6jmXcLf4cz9Jg" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .add-book-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 2.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .add-book-container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .add-book-container h2 {
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-control {
+            border-radius: 0.5rem;
+            border: 1px solid #ced4da;
+            padding: 0.75rem;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="add-book-container">
+        <h2>Add a New Book</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" name="title" id="title" class="form-control" required>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author:</label>
+                <input type="text" name="author" id="author" class="form-control" required>
+            </div>
+            <br>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+                <input type="number" name="price" id="price" class="form-control" step="0.01" required>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary w-100">Add Book</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS (Optional for functionality like dropdowns or modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0Z1P88lUe0vGGl40pftVzo37HbLM7UyYZtPImE9Edp5pLq9J" crossorigin="anonymous"></script>
+</body>
+</html>
